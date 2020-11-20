@@ -80,6 +80,7 @@ const ReactCompareImage: React.FC<IProps> = props => {
 
   // make the component responsive
   useEffect(() => {
+    if (!window || !window.ResizeObserver) return;
     const containerElement = containerRef.current;
     const resizeObserver = new ResizeObserver(([entry, ..._]) => {
       const currentContainerWidth = entry.target.getBoundingClientRect().width;
